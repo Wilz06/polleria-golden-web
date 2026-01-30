@@ -38,7 +38,7 @@ app.post('/api/checkout', async (req, res) => {
     ).join('');
     
     // Configuración WhatsApp
-    const numeroWhatsApp = "51999999999"; // <--- CAMBIA ESTO POR TU NÚMERO REAL
+    const numeroWhatsApp = "51983743475"; // <--- CAMBIA ESTO POR TU NÚMERO REAL
     const mensajeWsp = `Hola Golden Chicken, ya realicé el Yape de mi pedido por S/ ${total}. Adjunto la constancia.`;
     const linkWsp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWsp)}`;
 
@@ -129,3 +129,4 @@ app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
 
 });
+
