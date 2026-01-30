@@ -1,6 +1,6 @@
-// script.js - VERSIÓN COMPLETA (20 PRODUCTOS)
+// script.js - VERSIÓN FINAL CORREGIDA (PARA RENDER)
 
-// 1. Base de Datos Completa
+// 1. Base de Datos Completa (20 Productos)
 const products = [
     // --- POLLOS A LA BRASA ---
     { id: 1, category: "Pollos", name: "Pollo a la Brasa (Entero)", price: 68.00, desc: "Marinado secreto, papas nativas, ensalada familiar y cremas." },
@@ -96,10 +96,13 @@ function toggleCart() {
 }
 
 function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if(element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
 }
 
-// 4. Checkout (RUTA RELATIVA PARA QUE FUNCIONE EN RENDER)
+// 4. Checkout (AQUÍ ESTÁ LA CORRECCIÓN)
 document.getElementById('checkout-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     if(cart.length === 0) { alert("Tu carrito está vacío"); return; }
@@ -119,7 +122,8 @@ document.getElementById('checkout-form').addEventListener('submit', async (e) =>
     };
 
     try {
-        // CAMBIO CLAVE: Usar ruta relativa en lugar de localhost
+        // --- CAMBIO CLAVE ---
+        // Se borró "http://localhost:3000" y se dejó solo la ruta relativa
         const response = await fetch('/api/checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -129,7 +133,7 @@ document.getElementById('checkout-form').addEventListener('submit', async (e) =>
         const result = await response.json();
         
         if(result.success) {
-            alert('¡Pedido Recibido! Revisa tu correo para escanear el QR y confirmar el pago.');
+            alert('¡Pedido Recibido! Revisa tu correo para confirmar.');
             cart = [];
             updateCartUI();
             toggleCart();
@@ -138,9 +142,9 @@ document.getElementById('checkout-form').addEventListener('submit', async (e) =>
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error de conexión con el servidor.');
+        alert('Hubo un error al enviar el pedido. Intenta nuevamente.');
     } finally {
-        btn.innerText = "Solicitar Pedido";
+        btn.innerText = "Pagar y Enviar Pedido";
         btn.disabled = false;
     }
 });
