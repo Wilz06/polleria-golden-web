@@ -17,12 +17,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// --- CONFIGURACIÓN DEL CORREO ---
+// --- CONFIGURACIÓN DEL CORREO (SEGURA) ---
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'abernedo14@gmail.com', // <--- TU CORREO REAL
-        pass: 'nqee hpqu gpcn ikew'    // <--- TU CONTRASEÑA DE APLICACIÓN DE 16 LETRAS
+        user: process.env.EMAIL_USER, // Render llenará esto automáticamente
+        pass: process.env.EMAIL_PASS  // Render llenará esto automáticamente
     }
 });
 
@@ -127,4 +127,5 @@ app.post('/api/checkout', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
+
 });
