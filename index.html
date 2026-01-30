@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Chicken | Pollería Premium</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">GOLDEN CHICKEN</div>
+        <ul class="nav-links">
+            <li onclick="scrollToSection('hero')">Inicio</li>
+            <li onclick="scrollToSection('nosotros')">Nosotros</li>
+            <li onclick="scrollToSection('menu')">La Carta</li>
+            <li onclick="scrollToSection('locales')">Locales</li>
+        </ul>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero">
+        <div class="hero-content">
+            <h1>El Sabor de la Excelencia</h1>
+            <p>Tradición peruana, técnica moderna y pasión por el fuego.</p>
+            <button class="btn-primary" onclick="scrollToSection('menu')">Ver La Carta</button>
+        </div>
+    </header>
+
+    <section id="nosotros" class="info-section">
+        <div class="info-container">
+            <div class="info-text">
+                <h2>Nuestra Historia</h2>
+                <p>Nacimos en el corazón de Lima con una misión simple: elevar el Pollo a la Brasa a un nivel de alta cocina. Usamos leña de algarrobo seleccionada y una mezcla secreta de 14 especias andinas.</p>
+                <p>En Golden Chicken, no solo servimos comida, creamos momentos inolvidables alrededor de la mesa.</p>
+            </div>
+            <div class="info-image">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nuestra Cocina">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2>Nuestra Carta Premium</h2>
+        <p class="section-subtitle">Selección de Pollos, Parrillas y Complementos</p>
+        <div class="products-grid" id="products-container">
+            </div>
+    </section>
+
+    <section id="locales" class="locations-section">
+        <h2>Nuestros Locales</h2>
+        <div class="locations-grid">
+            <div class="location-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Sede Central</h3>
+                <p>Av. Principal 123, Miraflores</p>
+                <p>Lun-Dom: 12pm - 11pm</p>
+            </div>
+            <div class="location-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Plaza Norte</h3>
+                <p>Centro Comercial Plaza Norte, 2do Nivel</p>
+                <p>Lun-Dom: 11am - 10pm</p>
+            </div>
+            <div class="location-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Delivery Center</h3>
+                <p>Atención exclusiva para envíos a todo Lima</p>
+                <p>Lun-Dom: 11am - 12am</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Golden Chicken</h4>
+                <p>La mejor experiencia en pollos a la brasa y parrillas.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-phone"></i> (01) 555-1234</p>
+                <p><i class="fas fa-envelope"></i> reservas@goldenchicken.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <div class="socials">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-tiktok"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Golden Chicken System. Desarrollado con Node.js y MySQL.
+        </div>
+    </footer>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Tu Pedido</h3>
+                <span class="close-btn" onclick="toggleCart()">&times;</span>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-footer">
+                <div class="total">Total: S/ <span id="cart-total">0.00</span></div>
+                
+                <form id="checkout-form">
+                    <input type="text" id="client-name" placeholder="Nombre completo" required>
+                    <input type="email" id="client-email" placeholder="Correo electrónico" required>
+                    <input type="text" id="client-address" placeholder="Dirección de entrega" required>
+                    
+                    <p style="font-size: 0.8rem; color: #aaa; margin-bottom: 1rem;">
+                        * Al enviar el pedido, recibirás un correo con nuestro QR de Yape para realizar el pago.
+                    </p>
+    
+                    <button type="submit" class="btn-checkout">Solicitar Pedido</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
