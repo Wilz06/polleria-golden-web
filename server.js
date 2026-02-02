@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
 // 3. Credenciales (Leen de las variables ocultas de Render)
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.EMAIL_USER, // Render llenará esto
         pass: process.env.EMAIL_PASS  // Render llenará esto
@@ -102,3 +104,4 @@ app.post('/api/checkout', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`✅ SERVIDOR CLOUD LISTO en puerto ${PORT}`);
 });
+
