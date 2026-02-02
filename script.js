@@ -1,41 +1,43 @@
-// script.js - VERSIÓN FINAL CORREGIDA (PARA RENDER)
+// script.js - VERSIÓN FINAL CLOUD (24 PRODUCTOS)
 
-// 1. Base de Datos Completa (20 Productos)
+// 1. CARTA DE PRODUCTOS
 const products = [
-    // --- POLLOS A LA BRASA ---
+    // --- POLLOS ---
     { id: 1, category: "Pollos", name: "Pollo a la Brasa (Entero)", price: 68.00, desc: "Marinado secreto, papas nativas, ensalada familiar y cremas." },
     { id: 2, category: "Pollos", name: "1/2 Pollo Clásico", price: 38.00, desc: "Papas onduladas, ensalada fresca y todas las cremas." },
     { id: 3, category: "Pollos", name: "1/4 de Pollo (Parte Pecho)", price: 24.00, desc: "Jugoso pecho con papas doradas y ensalada." },
     { id: 4, category: "Pollos", name: "1/4 de Pollo (Parte Pierna)", price: 22.00, desc: "Pierna y encuentro con papas y ensalada." },
     { id: 5, category: "Pollos", name: "Mostrito Royal", price: 28.00, desc: "1/4 de pollo, arroz chaufa, papas fritas y huevo montado." },
-    
-    // --- PARRILLAS Y ANTICUCHOS ---
-    { id: 6, category: "Parrillas", name: "Anticuchos de Corazón", price: 28.00, desc: "2 palos, papas doradas, choclo y ají de la casa." },
-    { id: 7, category: "Parrillas", name: "Mollejitas a la Parrilla", price: 22.00, desc: "Mollejas marinadas al limón con papas doradas." },
-    { id: 8, category: "Parrillas", name: "Parrilla Mixta Simple", price: 45.00, desc: "Chuleta, anticucho, mollejitas y pechuga." },
-    { id: 9, category: "Parrillas", name: "Bife de Chorizo (300g)", price: 55.00, desc: "Corte argentino con papas fritas y ensalada cocida." },
-    { id: 10, category: "Parrillas", name: "Chuleta de Cerdo", price: 30.00, desc: "2 chuletas jugosas con papas y ensalada." },
+    { id: 6, category: "Pollos", name: "Pack Familiar Golden", price: 75.00, desc: "1 Pollo + Papas + Ensalada + Gaseosa 1.5L + Aguadito." },
 
-    // --- SALCHIPAPAS Y PIQUEOS ---
-    { id: 11, category: "Piqueos", name: "Salchipapa Clásica", price: 18.00, desc: "Hot dog frankfurter y papas amarillas." },
-    { id: 12, category: "Piqueos", name: "Salchipapa 'La Bestia'", price: 28.00, desc: "Salchicha, chorizo, huevo, queso y tocino." },
-    { id: 13, category: "Piqueos", name: "Tequeños de Pollo a la Brasa", price: 20.00, desc: "12 unidades con salsa de palta." },
-    
+    // --- PARRILLAS ---
+    { id: 7, category: "Parrillas", name: "Anticuchos de Corazón", price: 28.00, desc: "2 palos, papas doradas, choclo y ají de la casa." },
+    { id: 8, category: "Parrillas", name: "Mollejitas a la Parrilla", price: 22.00, desc: "Mollejas marinadas al limón con papas doradas." },
+    { id: 9, category: "Parrillas", name: "Parrilla Mixta Golden", price: 55.00, desc: "Bife, chuleta, anticucho, mollejitas y pechuga." },
+    { id: 10, category: "Parrillas", name: "Bife de Chorizo (350g)", price: 58.00, desc: "Corte argentino importado con papas y ensalada cocida." },
+    { id: 11, category: "Parrillas", name: "Lomo Fino a la Parrilla", price: 65.00, desc: "El corte más suave, término medio recomendado." },
+    { id: 12, category: "Parrillas", name: "Chuleta de Cerdo BBQ", price: 32.00, desc: "2 chuletas bañadas en salsa BBQ ahumada." },
+
+    // --- PIQUEOS ---
+    { id: 13, category: "Piqueos", name: "Salchipapa Clásica", price: 18.00, desc: "Hot dog frankfurter y papas amarillas." },
+    { id: 14, category: "Piqueos", name: "Salchipapa 'La Bestia'", price: 28.00, desc: "Salchicha, chorizo, huevo, queso y tocino." },
+    { id: 15, category: "Piqueos", name: "Tequeños de Lomo (6 un)", price: 24.00, desc: "Rellenos de lomo saltado con salsa de palta." },
+    { id: 16, category: "Piqueos", name: "Alitas BBQ (12 un)", price: 30.00, desc: "Alitas crocantes bañadas en salsa BBQ o Picante." },
+    { id: 17, category: "Piqueos", name: "Chicharrón de Pollo", price: 26.00, desc: "Trozos de pechuga crocantes con papas y tártara." },
+
     // --- GUARNICIONES ---
-    { id: 14, category: "Extras", name: "Porción de Papas Nativas", price: 15.00, desc: "Papas tumbay fritas al momento." },
-    { id: 15, category: "Extras", name: "Arroz Chaufa (Porción)", price: 12.00, desc: "Al estilo oriental con trozos de pollo." },
-    { id: 16, category: "Extras", name: "Ensalada Waldorf", price: 14.00, desc: "Manzana, apio, nueces y mayonesa dulce." },
+    { id: 18, category: "Extras", name: "Porción Papas Nativas", price: 15.00, desc: "Papas tumbay fritas al momento (500g)." },
+    { id: 19, category: "Extras", name: "Arroz Chaufa (Porción)", price: 14.00, desc: "Al estilo oriental con trozos de pollo y huevo." },
+    { id: 20, category: "Extras", name: "Ensalada Waldorf", price: 16.00, desc: "Manzana, apio, nueces y mayonesa dulce." },
 
     // --- BEBIDAS ---
-    { id: 17, category: "Bebidas", name: "Jarra Chicha Morada (1L)", price: 15.00, desc: "Maíz morado, piña, canela y clavo (Casera)." },
-    { id: 18, category: "Bebidas", name: "Limonada Frozen (1L)", price: 18.00, desc: "Clásica o con hierba luisa." },
-    { id: 19, category: "Bebidas", name: "Inca Kola (1.5L)", price: 12.00, desc: "La compañera perfecta." },
-    { id: 20, category: "Bebidas", name: "Pisco Sour Catedral", price: 25.00, desc: "Quebranta, limón y amargo de angostura." }
+    { id: 21, category: "Bebidas", name: "Jarra Chicha Morada (1L)", price: 18.00, desc: "Maíz morado, piña, canela y clavo (100% fruta)." },
+    { id: 22, category: "Bebidas", name: "Limonada Frozen (1L)", price: 20.00, desc: "Refrescante, clásica o con hierba luisa." },
+    { id: 23, category: "Bebidas", name: "Inca Kola (1.5L)", price: 12.00, desc: "La compañera perfecta para tu pollo." },
+    { id: 24, category: "Bebidas", name: "Pisco Sour Catedral", price: 28.00, desc: "Doble medida de Pisco Quebranta." }
 ];
 
 let cart = [];
-
-// 2. Renderizar Productos
 const container = document.getElementById('products-container');
 
 function renderProducts() {
@@ -56,38 +58,26 @@ function renderProducts() {
     });
 }
 
-// 3. Lógica del Carrito
 function addToCart(id) {
-    const product = products.find(p => p.id === id);
-    cart.push(product);
+    cart.push(products.find(p => p.id === id));
     updateCartUI();
-    
-    // Animación visual
-    const countBadge = document.getElementById('cart-count');
-    countBadge.style.transform = "scale(1.5)";
-    setTimeout(() => countBadge.style.transform = "scale(1)", 200);
+    const badge = document.getElementById('cart-count');
+    badge.style.transform = "scale(1.5)";
+    setTimeout(()=> badge.style.transform = "scale(1)", 200);
 }
 
 function updateCartUI() {
     document.getElementById('cart-count').innerText = cart.length;
-    const cartItemsDiv = document.getElementById('cart-items');
-    cartItemsDiv.innerHTML = '';
-    
-    let total = 0;
-    cart.forEach((item) => {
-        total += item.price;
-        cartItemsDiv.innerHTML += `
-            <div class="cart-item">
-                <div style="flex:1">
-                    <strong>${item.name}</strong>
-                    <div style="font-size:0.8em; color:#ccc">${item.category}</div>
-                </div>
-                <span>S/ ${item.price.toFixed(2)}</span>
-            </div>
-        `;
-    });
-    
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
     document.getElementById('cart-total').innerText = total.toFixed(2);
+    
+    const itemsDiv = document.getElementById('cart-items');
+    itemsDiv.innerHTML = cart.map(item => 
+        `<div class="cart-item">
+            <div><strong>${item.name}</strong></div>
+            <span>S/ ${item.price.toFixed(2)}</span>
+         </div>`
+    ).join('');
 }
 
 function toggleCart() {
@@ -96,18 +86,16 @@ function toggleCart() {
 }
 
 function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if(element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
 
-// 4. Checkout (AQUÍ ESTÁ LA CORRECCIÓN)
+// --- CHECKOUT ---
 document.getElementById('checkout-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    if(cart.length === 0) { alert("Tu carrito está vacío"); return; }
+    if(cart.length === 0) return alert("Tu carrito está vacío");
 
     const btn = document.querySelector('.btn-checkout');
+    const originalText = btn.innerText;
     btn.innerText = "Procesando...";
     btn.disabled = true;
 
@@ -122,8 +110,7 @@ document.getElementById('checkout-form').addEventListener('submit', async (e) =>
     };
 
     try {
-        // --- CAMBIO CLAVE ---
-        // Se borró "http://localhost:3000" y se dejó solo la ruta relativa
+        // RUTA RELATIVA: Funciona en Localhost y en Render automáticamente
         const response = await fetch('/api/checkout', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -133,21 +120,20 @@ document.getElementById('checkout-form').addEventListener('submit', async (e) =>
         const result = await response.json();
         
         if(result.success) {
-            alert('¡Pedido Recibido! Revisa tu correo para confirmar.');
+            alert('✅ ¡PEDIDO ENVIADO! Revisa tu correo.');
             cart = [];
             updateCartUI();
             toggleCart();
         } else {
-            alert('Error en el servidor: ' + result.message);
+            alert('❌ Error del servidor: ' + result.message);
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('Hubo un error al enviar el pedido. Intenta nuevamente.');
+        console.error(error);
+        alert('❌ Error de conexión. Intenta nuevamente.');
     } finally {
-        btn.innerText = "Pagar y Enviar Pedido";
+        btn.innerText = originalText;
         btn.disabled = false;
     }
 });
 
-// Inicializar
 renderProducts();
